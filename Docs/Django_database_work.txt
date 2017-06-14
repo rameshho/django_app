@@ -1,0 +1,55 @@
+//This will launch the database shell
+(MyDjangoProject) blr-mpfby:firstdjango rhosmani$ python manage.py shell
+Python 3.6.1 (default, Mar 23 2017, 16:49:01) 
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+
+//Imports the models
+>>> from music.models import Album, Song
+
+//List out all the albums present
+>>> Album.objects.all()
+<QuerySet []>
+
+//Creates the album
+>>> a = Album(artist="Taylor Swift", album_title="Red", genre="Country", album_logo="https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiSxO330q3UAhWJq48KHXrbBh4QjRwIBw&url=https%3A%2F%2Fwww.planwallpaper.com%2Fimages-love&psig=AFQjCNHrrraqzRG9eerHPN-TcNRWFpDmeQ&ust=1496990664165221") 
+
+//saves to databse
+>>> a.save()
+>>> a.artist
+'Taylor Swift'
+>>> a.id
+1
+>>> b = Album()
+>>> b.artist = "Myth"
+>>> b.album_title = "High School"
+>>> b.genre = "Punk"
+>>> b.album_logo = "https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fmedia.licdn.com%2Fmpr%2Fmpr%2Fshrinknp_200_200%2Fp%2F5%2F005%2F037%2F2a2%2F24fb728.jpg&imgrefurl=https%3A%2F%2Fin.linkedin.com%2Fin%2Framesh-hosamani-06826149&docid=Uh5eCRJTBkoZDM&tbnid=hRGtl9skRJK2MM%3A&vet=10ahUKEwihs_3r063UAhUMvI8KHepzCZAQMwghKAAwAA..i&w=199&h=199&bih=786&biw=1440&q=ramesh%20hosamani&ved=0ahUKEwihs_3r063UAhUMvI8KHepzCZAQMwghKAAwAA&iact=mrc&uact=8"
+>>> b.save()
+
+
+>>> Album.objects.all()[0]
+<Album: Album object>
+>>> exit()
+
+>>> Album.objects.all()
+<QuerySet [<Album: Red>, <Album: High School>]>
+>>> Album.objects.filter(id=1)
+<QuerySet [<Album: Red>]>
+>>> Album.objects.filter(id=2)
+<QuerySet [<Album: High School>]>
+>>> Album.objects.filter(id=3)
+<QuerySet []>
+>>> Album.objects.filter(artist__startswith='Taylor')
+<QuerySet [<Album: Red>]>
+
+//To display songs in an album
+album1 = Album.objects.get(pk=1)
+album1.song_set.all()
+
+//Create a song
+album1.song_set.create(song_title='I love bacon', file_type='mp3')
+
+//To count number of songs in album
+album1.song_set.count()

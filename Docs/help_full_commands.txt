@@ -1,0 +1,9 @@
+python manage.py migrate :- To link to Database or it runs it
+python manage.py makemigrations music :- To add schema for music app in database
+python manage.py sqlmigrate music 0001 :- To see that schema in the database
+python manage.py migrate :- To link to Database or it runs it
+python manage.py shell :- Django Database API shell
+python manage.py createsuperuser :- To create Administrator privilages.
+
+
+When ever you change structure of Database you should restart your server.
