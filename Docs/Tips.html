@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django tips</title>
+</head>
+<body>
+<h3>When ever user uploads an image in music app, where it should store and how http should pick from there, explains below,</h3>
+In <strong>settings.py</strong> file of the Django project,<br>
+Go to end of the file and add two variables as follows, <br>
+<strong>Add below lines,</strong><br>
+#This is the file path directory where we are putting all of the files loaded<br>
+<strong>MEDIA_ROOT = os.path.join(BASE_DIR, 'media')</strong><br><br>
+#Browser use for accessing the files over http<br>
+<strong>MEDIA_URL = '/media/'</strong>
+<br><br>
+Add website urls as shown in file urls.py in this project.<br>
+<strong>from django.conf import settings</strong><br>
+<strong>from django.conf.urls.static import static</strong><br>
+</h4>
+</body>
+</html>

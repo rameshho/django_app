@@ -1,0 +1,20 @@
+<html>
+<head>
+ <title>Database upgrade steps</title>
+</head>
+<body>
+<h3>Basic database commands of Django</h3>
+#python manage.py migrate :- To link to Database or it runs it<br>
+#python manage.py makemigrations <strong>music</strong> :- To add schema for <strong>music</strong> app in database<br>
+#python manage.py sqlmigrate music 0001 :- To see that schema in the database<br>
+#python manage.py migrate :- To link to Database or it runs it<br>
+#python manage.py shell :- Django Database API shell<br>
+#python manage.py createsuperuser :- To create Administrator privilages.<br>
+
+
+<h3>When ever you change structure of Database you should execute below commands,</h3>
+ #python manage.py makemigrations <strong>"App name"</strong>           # in our case App name is music<br>
+ #python manage.py migrate<br>
+ #restart your server.<br>
+</body>
+ </html>
